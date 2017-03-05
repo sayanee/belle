@@ -11,8 +11,8 @@
   ![](breadboard.JPG)
 - Configure IFTTT with [Maker](https://ifttt.com/maker) and [Notification](https://ifttt.com/if_notifications) channels to Receive a web request
 - Download the IFTTT app on mobile as well.
-- Amend `Line 220` in [firmware code](firmware/bell.io) to add the web request URL
-- Load the [firmware code](firmware/bell.io) in Arduino IDE and upload to nodeMCU
+- Amend `Line 220` in [firmware code](firmware/belle.io) to add the web request URL
+- Load the [firmware code](firmware/belle.io) in Arduino IDE and upload to nodeMCU
 - For first time, connect to access point with SSID `Belle XXXX` and password `beautyandthebeast`
 - Put in your WiFi SSID and password
 - Press the 🛎. You should hear the buzzer and get a mobile notification we well.
