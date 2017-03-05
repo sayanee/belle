@@ -8,7 +8,7 @@
 
 1. Assemble the test hardware in a breadboard with [nodeMCU](http://nodemcu.com/index_en.html), button and buzzer
 
-  ![](breadbaord.JPG)
+  ![](breadboard.JPG)
 - Configure IFTTT with [Maker](https://ifttt.com/maker) and [Notification](https://ifttt.com/if_notifications) channels to Receive a web request
 - Download the IFTTT app on mobile as well.
 - Amend `Line 220` in [firmware code](firmware/bell.io) to add the web request URL
