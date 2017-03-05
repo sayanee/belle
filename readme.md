@@ -17,6 +17,11 @@
 - Put in your WiFi SSID and password
 - Press the 🛎. You should hear the buzzer and get a mobile notification we well.
 
+## Manufacture
+
+1. Open [hardware](hardware) with [KiCad](http://kicad-pcb.org/)
+- Buy [Bill of Materials](https://docs.google.com/spreadsheets/d/1m9wsQ8mQkDeZknwRr8GEDQU02FGcmrBqXRizbyn6Ccs/pubhtml)
+
 ## References
 
 1. [Power Saving tips for the ESP8266](https://github.com/z2amiller/sensorboard/blob/master/PowerSaving.md)
