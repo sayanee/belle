@@ -35,6 +35,7 @@
 - ESP8266 module
 - [Inverting Schmitt Trigger](http://www.ti.com/lit/ds/symlink/sn74ahc1g04.pdf)
 - [CH340](https://www.olimex.com/Products/Breadboarding/BB-CH340T/resources/CH340DS1.PDF)
+- [Schmitt trigger SN74AHC1G04 Single Inverter Gate](http://www.ti.com/lit/ds/symlink/sn74ahc1g04.pdf)
 
 ## Tools
 
