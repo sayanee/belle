@@ -35,14 +35,6 @@
 1. [wifiwebservers - ESP8266 with 2AA batteries](http://www.arduinesp.com/wifiwebserver)
 1. [Simple Authentication](https://github.com/esp8266/Arduino/blob/4897e0006b5b0123a2fa31f67b14a3fff65ce561/libraries/ESP8266WebServer/examples/SimpleAuthentification/SimpleAuthentification.ino)
 
-## Datasheet
-
-1. [AP2112](https://cdn-shop.adafruit.com/product-files/2471/AP2112.pdf): CMOS process low dropout linear regulator
-1. ESP8266 module
-1. [Inverting Schmitt Trigger](http://www.ti.com/lit/ds/symlink/sn74ahc1g04.pdf)
-1. [CH340](https://www.olimex.com/Products/Breadboarding/BB-CH340T/resources/CH340DS1.PDF)
-1. [Schmitt trigger SN74AHC1G04 Single Inverter Gate](http://www.ti.com/lit/ds/symlink/sn74ahc1g04.pdf)
-
 ## Tools
 
 1. [simple calculator for estimating a (LiPo) battery's life](http://battery-life.of-things.de/battery-life-calculator.php)
