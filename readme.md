@@ -22,7 +22,7 @@
 1. Open [hardware](hardware) with [KiCad](http://kicad-pcb.org/)
 1. Buy [Bill of Materials](https://docs.google.com/spreadsheets/d/1m9wsQ8mQkDeZknwRr8GEDQU02FGcmrBqXRizbyn6Ccs/pubhtml)
 
-![](schematic.png)
+![](layout.png)
 
 ## References
 
