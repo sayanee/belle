@@ -42,4 +42,4 @@
 
 ## Credits
 
-Thanks to [Chinmay](https://chinmay.audio/), [Adnan](https://github.com/catmaker), [Kenneth](https://github.com/kennethlimcp) for feedback, verifications and soldering :star:
+:star: Big thanks to [Chinmay](https://chinmay.audio/), [Adnan](https://github.com/catmaker), [Kenneth](https://github.com/kennethlimcp), [Shan](https://twitter.com/shannietron) for feedback, verifications and soldering :star:
