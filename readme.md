@@ -15,7 +15,7 @@
 1. Load the [firmware code](firmware/belle.ino) in Arduino IDE and upload to nodeMCU
 1. For first time, connect to access point with SSID `Belle XXXX` and password `beautyandthebeast`
 1. Put in your WiFi SSID and password
-1. Press the 🛎. You should hear the buzzer and get a mobile notification we well.
+1. Press the 🛎. You should hear the buzzer and get a mobile notification as well.
 
 ## Manufacture
 
