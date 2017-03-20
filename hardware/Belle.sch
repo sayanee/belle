@@ -577,4 +577,22 @@ Wire Wire Line
 	7150 4700 6800 4700
 Wire Wire Line
 	6800 4900 6800 5000
+Text Notes 3800 2650 0    60   ~ 0
+Speaker or buzzer will ring \nwhen the bell is pressed
+Text Notes 9200 4100 1    60   ~ 0
+Flashing connector is\nused to flash the firmware\nfor the very first time
+Text Notes 2000 4100 1    60   ~ 0
+Bell connector connects to \nthe actual door bell wires
+Text Notes 9000 5550 1    60   ~ 0
+Battery connector connects \nto 3 AA batteries with 4.5V
+Wire Notes Line
+	2700 3300 3250 3300
+Wire Notes Line
+	3250 3300 3250 4200
+Wire Notes Line
+	3250 4200 2700 4200
+Wire Notes Line
+	2700 4200 2700 3300
+Text Notes 2800 4350 0    60   ~ 0
+RC filter
 $EndSCHEMATC
