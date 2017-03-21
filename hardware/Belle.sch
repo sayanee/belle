@@ -105,7 +105,7 @@ L SPEAKER SP1
 U 1 1 58BBCE20
 P 4400 3100
 F 0 "SP1" H 4300 3350 50  0000 C CNN
-F 1 "SPEAKER" H 4300 2850 50  0000 C CNN
+F 1 "BUZZER" H 4300 2850 50  0000 C CNN
 F 2 "Belle:prosignal_buzzer" H 4400 3100 50  0001 C CNN
 F 3 "" H 4400 3100 50  0000 C CNN
 	1    4400 3100
@@ -577,8 +577,8 @@ Wire Wire Line
 	7150 4700 6800 4700
 Wire Wire Line
 	6800 4900 6800 5000
-Text Notes 3800 2650 0    60   ~ 0
-Speaker or buzzer will ring \nwhen the bell is pressed
+Text Notes 3850 2700 0    60   ~ 0
+Buzzer will ring when \nthe bell is pressed
 Text Notes 9200 4100 1    60   ~ 0
 Flashing connector is\nused to flash the firmware\nfor the very first time
 Text Notes 2000 4100 1    60   ~ 0

@@ -1,8 +1,8 @@
 (export (version D)
   (design
     (source /Users/sayanee/Workspace/belle/hardware/Belle.sch)
-    (date "2017 March 19, Sunday 17:32:39")
-    (tool "Eeschema 4.0.2-stable")
+    (date "2017 March 21, Tuesday 08:35:51")
+    (tool "Eeschema 4.0.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
         (title)
@@ -28,9 +28,9 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 58BBCD3B))
     (comp (ref SP1)
-      (value SPEAKER)
+      (value BUZZER)
       (footprint Belle:prosignal_buzzer)
-      (libsource (lib device) (part SPEAKER))
+      (libsource (lib Belle-cache) (part SPEAKER))
       (sheetpath (names /) (tstamps /))
       (tstamp 58BBCE20))
     (comp (ref U1)
@@ -136,7 +136,7 @@
         (pin (num 4) (name ~) (type output))
         (pin (num 5) (name VCC) (type power_in))))
     (libpart (lib conn) (part CONN_01X02)
-      (description "Connector 01x02")
+      (description "Connector, single row, 01x02")
       (footprints
         (fp Pin_Header_Straight_1X02)
         (fp Pin_Header_Angled_1X02)
@@ -149,7 +149,7 @@
         (pin (num 1) (name P1) (type passive))
         (pin (num 2) (name P2) (type passive))))
     (libpart (lib conn) (part CONN_01X06)
-      (description "Connector 01x06")
+      (description "Connector, single row, 01x06")
       (footprints
         (fp Pin_Header_Straight_1X06)
         (fp Pin_Header_Angled_1X06)
@@ -191,7 +191,7 @@
         (field (name Reference) U)
         (field (name Value) ESP-12))
       (pins
-        (pin (num 1) (name REST) (type input))
+        (pin (num 1) (name ~REST) (type input))
         (pin (num 2) (name ADC) (type passive))
         (pin (num 3) (name CH_PD) (type input))
         (pin (num 4) (name GPIO16) (type BiDi))
@@ -208,7 +208,7 @@
         (pin (num 15) (name RXD) (type input))
         (pin (num 16) (name TXD) (type output))))
     (libpart (lib device) (part R_Small)
-      (description Resistor)
+      (description "Resistor, small symbol")
       (footprints
         (fp Resistor_*)
         (fp R_*))
@@ -218,7 +218,7 @@
       (pins
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
-    (libpart (lib device) (part SPEAKER)
+    (libpart (lib Belle-cache) (part SPEAKER)
       (fields
         (field (name Reference) SP)
         (field (name Value) SPEAKER))
@@ -244,14 +244,16 @@
   (libraries
     (library (logical conn)
       (uri "/Library/Application Support/kicad/library/conn.lib"))
-    (library (logical regul)
-      (uri "/Library/Application Support/kicad/library/regul.lib"))
+    (library (logical Belle-cache)
+      (uri /Users/sayanee/Workspace/belle/hardware/Belle-cache.lib))
     (library (logical device)
       (uri "/Library/Application Support/kicad/library/device.lib"))
-    (library (logical 74xx)
-      (uri "/Library/Application Support/kicad/library/74xx.lib"))
     (library (logical ESP8266)
-      (uri /Users/sayanee/Workspace/belle/hardware/kicad-ESP8266/ESP8266.lib)))
+      (uri /Users/sayanee/Workspace/belle/hardware/kicad-ESP8266/ESP8266.lib))
+    (library (logical regul)
+      (uri "/Library/Application Support/kicad/library/regul.lib"))
+    (library (logical 74xx)
+      (uri "/Library/Application Support/kicad/library/74xx.lib")))
   (nets
     (net (code 1) (name /FLASH_EN_1)
       (node (ref R7) (pin 1))

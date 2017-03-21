@@ -585,4 +585,14 @@ Text Notes 2000 4100 1    60   ~ 0
 Bell connector connects to \nthe actual door bell wires
 Text Notes 9000 5550 1    60   ~ 0
 Battery connector connects \nto 3 AA batteries with 4.5V
+Wire Notes Line
+	2700 3300 3250 3300
+Wire Notes Line
+	3250 3300 3250 4200
+Wire Notes Line
+	3250 4200 2700 4200
+Wire Notes Line
+	2700 4200 2700 3300
+Text Notes 2800 4350 0    60   ~ 0
+RC filter
 $EndSCHEMATC
