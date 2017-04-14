@@ -39,6 +39,7 @@
 
 1. [simple calculator for estimating a (LiPo) battery's life](http://battery-life.of-things.de/battery-life-calculator.php)
 1. [Encode to Base64 format](https://www.base64encode.org/)
+1. [Circuit simulator](http://www.falstad.com/circuit/)
 
 ## Credits
 
