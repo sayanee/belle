@@ -4,6 +4,13 @@
 
 ![](screenshot.png)
 
+## Manufacture
+
+1. Open [hardware](hardware) with [KiCad](http://kicad-pcb.org/)
+1. Buy [Bill of Materials](https://docs.google.com/spreadsheets/d/1m9wsQ8mQkDeZknwRr8GEDQU02FGcmrBqXRizbyn6Ccs/pubhtml)
+
+![](layout.png)
+
 ## Getting started
 
 1. Assemble the test hardware in a breadboard with [nodeMCU](http://nodemcu.com/index_en.html), button and buzzer
@@ -17,12 +24,19 @@
 1. Put in your WiFi SSID and password
 1. Press the 🛎. You should hear the buzzer and get a mobile notification as well.
 
-## Manufacture
+## Modes
 
-1. Open [hardware](hardware) with [KiCad](http://kicad-pcb.org/)
-1. Buy [Bill of Materials](https://docs.google.com/spreadsheets/d/1m9wsQ8mQkDeZknwRr8GEDQU02FGcmrBqXRizbyn6Ccs/pubhtml)
+### ESP8266 in flashing mode
 
-![](layout.png)
+[[Ref](https://raw.githubusercontent.com/nodemcu/nodemcu-devkit/master/Documents/NODEMCU_DEVKIT_SCH.png)] Connect the pins to:
+
+1. `GND` to `0V`
+1. `GPIO0` to `0V`
+1. `GPIO15` to `0V`
+1. `GPIORX` to TX on serial
+1. `GPIOTX` to RX on serial
+1. `VCC` to `3V3`
+1. `CHPD` to `3V3`
 
 ## References
 
