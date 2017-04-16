@@ -180,34 +180,34 @@ $EndComp
 $Comp
 L R_Small R1
 U 1 1 58BBD236
-P 2400 3150
-F 0 "R1" H 2450 3200 50  0000 L CNN
-F 1 "22k" H 2450 3100 50  0000 L CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 2400 3150 50  0001 C CNN
-F 3 "" H 2400 3150 50  0000 C CNN
-	1    2400 3150
+P 2400 3300
+F 0 "R1" H 2450 3350 50  0000 L CNN
+F 1 "22k" H 2450 3250 50  0000 L CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" H 2400 3300 50  0001 C CNN
+F 3 "" H 2400 3300 50  0000 C CNN
+	1    2400 3300
 	1    0    0    -1  
 $EndComp
 $Comp
 L +3.3V #PWR07
 U 1 1 58BBD349
-P 2400 2900
-F 0 "#PWR07" H 2400 2750 50  0001 C CNN
-F 1 "+3.3V" H 2400 3040 50  0000 C CNN
-F 2 "" H 2400 2900 50  0000 C CNN
-F 3 "" H 2400 2900 50  0000 C CNN
-	1    2400 2900
+P 2400 3100
+F 0 "#PWR07" H 2400 2950 50  0001 C CNN
+F 1 "+3.3V" H 2400 3240 50  0000 C CNN
+F 2 "" H 2400 3100 50  0000 C CNN
+F 3 "" H 2400 3100 50  0000 C CNN
+	1    2400 3100
 	1    0    0    -1  
 $EndComp
 $Comp
 L CONN_01X02 P1
 U 1 1 58BBD41F
-P 2200 3550
-F 0 "P1" H 2200 3700 50  0000 C CNN
-F 1 "Bell CONN" V 2300 3550 50  0000 C CNN
-F 2 "Terminal_Blocks:TerminalBlock_Pheonix_MKDS1.5-2pol" H 2200 3550 50  0001 C CNN
-F 3 "" H 2200 3550 50  0000 C CNN
-	1    2200 3550
+P 2150 3550
+F 0 "P1" H 2150 3700 50  0000 C CNN
+F 1 "Bell CONN" V 2250 3550 50  0000 C CNN
+F 2 "Terminal_Blocks:TerminalBlock_Pheonix_MKDS1.5-2pol" H 2150 3550 50  0001 C CNN
+F 3 "" H 2150 3550 50  0000 C CNN
+	1    2150 3550
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -258,8 +258,8 @@ $Comp
 L R_Small R6
 U 1 1 58BBD5DC
 P 7150 3900
-F 0 "R6" H 7180 3920 50  0000 L CNN
-F 1 "12K" H 7180 3860 50  0000 L CNN
+F 0 "R6" V 7250 3850 50  0000 L CNN
+F 1 "12K" V 7050 3850 50  0000 L CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" H 7150 3900 50  0001 C CNN
 F 3 "" H 7150 3900 50  0000 C CNN
 	1    7150 3900
@@ -280,8 +280,8 @@ $Comp
 L R_Small R4
 U 1 1 58BBD6F3
 P 6800 4250
-F 0 "R4" H 6830 4270 50  0000 L CNN
-F 1 "10K" H 6830 4210 50  0000 L CNN
+F 0 "R4" H 6850 4300 50  0000 L CNN
+F 1 "10K" H 6850 4200 50  0000 L CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" H 6800 4250 50  0001 C CNN
 F 3 "" H 6800 4250 50  0000 C CNN
 	1    6800 4250
@@ -368,6 +368,122 @@ Text Label 8400 3700 0    60   ~ 0
 TX
 Text Label 8400 3800 0    60   ~ 0
 RX
+$Comp
+L R_Small R7
+U 1 1 58BBEBD8
+P 7450 3400
+F 0 "R7" V 7400 3500 50  0000 L CNN
+F 1 "470R" V 7500 3500 50  0000 L CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" H 7450 3400 50  0001 C CNN
+F 3 "" H 7450 3400 50  0000 C CNN
+	1    7450 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L R_Small R5
+U 1 1 58BBEC6E
+P 7150 3050
+F 0 "R5" H 7000 3050 50  0000 L CNN
+F 1 "12K" H 7200 3050 50  0000 L CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" H 7150 3050 50  0001 C CNN
+F 3 "" H 7150 3050 50  0000 C CNN
+	1    7150 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR016
+U 1 1 58BBED05
+P 7150 2700
+F 0 "#PWR016" H 7150 2550 50  0001 C CNN
+F 1 "+3.3V" H 7150 2840 50  0000 C CNN
+F 2 "" H 7150 2700 50  0000 C CNN
+F 3 "" H 7150 2700 50  0000 C CNN
+	1    7150 2700
+	1    0    0    -1  
+$EndComp
+Text Label 8400 3600 0    60   ~ 0
+5V
+Text Label 8500 3500 2    60   ~ 0
+FLASH_EN_2
+Text Label 8500 3400 2    60   ~ 0
+FLASH_EN_1
+Text Label 8500 3900 2    60   ~ 0
+GND
+Text Label 8300 4950 2    60   ~ 0
+PWR
+NoConn ~ 5000 4100
+NoConn ~ 5000 4000
+NoConn ~ 5000 3900
+NoConn ~ 5000 3800
+NoConn ~ 5000 3600
+NoConn ~ 7150 4850
+NoConn ~ 6800 3700
+NoConn ~ 6800 3800
+$Comp
+L PWR_FLAG #FLG017
+U 1 1 58BBEBAB
+P 8200 4850
+F 0 "#FLG017" H 8200 4945 50  0001 C CNN
+F 1 "PWR_FLAG" H 8250 5050 50  0000 C CNN
+F 2 "" H 8200 4850 50  0000 C CNN
+F 3 "" H 8200 4850 50  0000 C CNN
+	1    8200 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L C_Small C4
+U 1 1 58CE4E44
+P 8300 4300
+F 0 "C4" V 8350 4350 50  0000 L CNN
+F 1 "1u" V 8350 4150 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 8300 4300 50  0001 C CNN
+F 3 "" H 8300 4300 50  0000 C CNN
+	1    8300 4300
+	0    1    1    0   
+$EndComp
+$Comp
+L GND #PWR018
+U 1 1 58CE4ED3
+P 8500 4300
+F 0 "#PWR018" H 8500 4050 50  0001 C CNN
+F 1 "GND" H 8500 4150 50  0000 C CNN
+F 2 "" H 8500 4300 50  0000 C CNN
+F 3 "" H 8500 4300 50  0000 C CNN
+	1    8500 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L C_Small C3
+U 1 1 58CE500B
+P 6800 4800
+F 0 "C3" H 6810 4870 50  0000 L CNN
+F 1 "1u" H 6810 4720 50  0000 L CNN
+F 2 "Capacitors_SMD:C_1206_HandSoldering" H 6800 4800 50  0001 C CNN
+F 3 "" H 6800 4800 50  0000 C CNN
+	1    6800 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR019
+U 1 1 58CE504A
+P 6800 5000
+F 0 "#PWR019" H 6800 4750 50  0001 C CNN
+F 1 "GND" H 6800 4850 50  0000 C CNN
+F 2 "" H 6800 5000 50  0000 C CNN
+F 3 "" H 6800 5000 50  0000 C CNN
+	1    6800 5000
+	1    0    0    -1  
+$EndComp
+Text Notes 3950 2750 0    60   ~ 0
+Buzzer will ring when \nthe bell is pressed
+Text Notes 9200 4100 1    60   ~ 0
+Flashing connector is\nused to flash the firmware\nfor the very first time
+Text Notes 1950 4100 1    60   ~ 0
+Bell connector connects to \nthe actual door bell wires
+Text Notes 9000 5550 1    60   ~ 0
+Battery connector connects \nto 3 AA batteries with 4.5V
+Text Notes 2800 4300 0    60   ~ 0
+RC filter
 Wire Wire Line
 	6400 3000 6650 3000
 Wire Wire Line
@@ -388,11 +504,7 @@ Connection ~ 3100 3500
 Wire Wire Line
 	3100 3800 3100 4000
 Wire Wire Line
-	2400 2900 2400 3050
-Wire Wire Line
-	2400 3250 2400 3500
-Wire Wire Line
-	2400 3500 2700 3500
+	2350 3500 2700 3500
 Wire Wire Line
 	2400 3600 2400 3750
 Wire Wire Line
@@ -445,75 +557,13 @@ Wire Wire Line
 	6950 4000 6950 3400
 Wire Wire Line
 	6950 3400 7350 3400
-$Comp
-L R_Small R7
-U 1 1 58BBEBD8
-P 7450 3400
-F 0 "R7" V 7400 3250 50  0000 L CNN
-F 1 "470R" V 7350 3350 50  0000 L CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 7450 3400 50  0001 C CNN
-F 3 "" H 7450 3400 50  0000 C CNN
-	1    7450 3400
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	7550 3400 8500 3400
-$Comp
-L R_Small R5
-U 1 1 58BBEC6E
-P 7150 3050
-F 0 "R5" H 7180 3070 50  0000 L CNN
-F 1 "12K" H 7180 3010 50  0000 L CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 7150 3050 50  0001 C CNN
-F 3 "" H 7150 3050 50  0000 C CNN
-	1    7150 3050
-	1    0    0    -1  
-$EndComp
-$Comp
-L +3.3V #PWR016
-U 1 1 58BBED05
-P 7150 2700
-F 0 "#PWR016" H 7150 2550 50  0001 C CNN
-F 1 "+3.3V" H 7150 2840 50  0000 C CNN
-F 2 "" H 7150 2700 50  0000 C CNN
-F 3 "" H 7150 2700 50  0000 C CNN
-	1    7150 2700
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7150 2700 7150 2950
 Wire Wire Line
 	7150 3150 7150 3400
 Connection ~ 7150 3400
-Text Label 8400 3600 0    60   ~ 0
-5V
-Text Label 8500 3500 2    60   ~ 0
-FLASH_EN_2
-Text Label 8500 3400 2    60   ~ 0
-FLASH_EN_1
-Text Label 8500 3900 2    60   ~ 0
-GND
-Text Label 8400 4850 2    60   ~ 0
-PWR
-NoConn ~ 5000 4100
-NoConn ~ 5000 4000
-NoConn ~ 5000 3900
-NoConn ~ 5000 3800
-NoConn ~ 5000 3600
-NoConn ~ 7150 4850
-NoConn ~ 6800 3700
-NoConn ~ 6800 3800
-$Comp
-L PWR_FLAG #FLG017
-U 1 1 58BBEBAB
-P 8200 4850
-F 0 "#FLG017" H 8200 4945 50  0001 C CNN
-F 1 "PWR_FLAG" H 8200 5030 50  0000 C CNN
-F 2 "" H 8200 4850 50  0000 C CNN
-F 3 "" H 8200 4850 50  0000 C CNN
-	1    8200 4850
-	1    0    0    -1  
-$EndComp
 Connection ~ 8200 4850
 Wire Wire Line
 	6200 2900 6200 3000
@@ -524,67 +574,15 @@ Wire Wire Line
 Wire Wire Line
 	4700 2900 4700 3000
 Connection ~ 5900 2900
-$Comp
-L C_Small C4
-U 1 1 58CE4E44
-P 8300 4300
-F 0 "C4" H 8310 4370 50  0000 L CNN
-F 1 "1u" H 8310 4220 50  0000 L CNN
-F 2 "Capacitors_SMD:C_1206_HandSoldering" H 8300 4300 50  0001 C CNN
-F 3 "" H 8300 4300 50  0000 C CNN
-	1    8300 4300
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	8200 4300 8050 4300
 Connection ~ 8050 4300
-$Comp
-L GND #PWR018
-U 1 1 58CE4ED3
-P 8500 4300
-F 0 "#PWR018" H 8500 4050 50  0001 C CNN
-F 1 "GND" H 8500 4150 50  0000 C CNN
-F 2 "" H 8500 4300 50  0000 C CNN
-F 3 "" H 8500 4300 50  0000 C CNN
-	1    8500 4300
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8400 4300 8500 4300
-$Comp
-L C_Small C3
-U 1 1 58CE500B
-P 6800 4800
-F 0 "C3" H 6810 4870 50  0000 L CNN
-F 1 "1u" H 6810 4720 50  0000 L CNN
-F 2 "Capacitors_SMD:C_1206_HandSoldering" H 6800 4800 50  0001 C CNN
-F 3 "" H 6800 4800 50  0000 C CNN
-	1    6800 4800
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR019
-U 1 1 58CE504A
-P 6800 5000
-F 0 "#PWR019" H 6800 4750 50  0001 C CNN
-F 1 "GND" H 6800 4850 50  0000 C CNN
-F 2 "" H 6800 5000 50  0000 C CNN
-F 3 "" H 6800 5000 50  0000 C CNN
-	1    6800 5000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7150 4700 6800 4700
 Wire Wire Line
 	6800 4900 6800 5000
-Text Notes 3850 2700 0    60   ~ 0
-Buzzer will ring when \nthe bell is pressed
-Text Notes 9200 4100 1    60   ~ 0
-Flashing connector is\nused to flash the firmware\nfor the very first time
-Text Notes 2000 4100 1    60   ~ 0
-Bell connector connects to \nthe actual door bell wires
-Text Notes 9000 5550 1    60   ~ 0
-Battery connector connects \nto 3 AA batteries with 4.5V
 Wire Notes Line
 	2700 3300 3250 3300
 Wire Notes Line
@@ -593,6 +591,21 @@ Wire Notes Line
 	3250 4200 2700 4200
 Wire Notes Line
 	2700 4200 2700 3300
-Text Notes 2800 4350 0    60   ~ 0
-RC filter
+Wire Notes Line
+	2250 2900 2250 4400
+Wire Notes Line
+	2250 4400 4050 4400
+Wire Notes Line
+	4050 4400 4050 2900
+Wire Notes Line
+	4050 2900 2250 2900
+Text Notes 2800 4500 0    60   ~ 0
+Debouncing circuit
+Wire Wire Line
+	2400 3600 2350 3600
+Wire Wire Line
+	2400 3400 2400 3500
+Connection ~ 2400 3500
+Wire Wire Line
+	2400 3100 2400 3200
 $EndSCHEMATC
