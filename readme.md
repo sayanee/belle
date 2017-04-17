@@ -15,7 +15,7 @@
 
 1. Assemble the test hardware in a breadboard with [nodeMCU](http://nodemcu.com/index_en.html), button and buzzer
 
-  ![](breadboard.JPG)
+  ![](images/prototype-1.JPG)
 1. Configure IFTTT with [Maker](https://ifttt.com/maker) and [Notification](https://ifttt.com/if_notifications) channels to Receive a web request
 1. Download the IFTTT app on mobile as well.
 1. Amend `Line 220` in [firmware code](firmware/belle.ino#L220) to add the web request URL
@@ -26,19 +26,30 @@
 
 ## Modes
 
-### ESP8266 in flashing mode
+### ESP8266 in flashing / programming mode
 
-[[Ref](https://raw.githubusercontent.com/nodemcu/nodemcu-devkit/master/Documents/NODEMCU_DEVKIT_SCH.png)] Connect the pins to:
+Connect the pins to:
 
 1. `GND` to `0V`
-1. `GPIO0` to `0V`
 1. `GPIO15` to `0V`
+1. `GPIO2` to `3V3 `
+1. `GPIO0` to `0V`
 1. `GPIORX` to TX on serial
 1. `GPIOTX` to RX on serial
 1. `VCC` to `3V3`
 1. `CHPD` to `3V3`
+1.  `RST` the chip by connecting rest to `0V` briefly before flashing
 
-## References
+### ESP8266 in run / normal mode
+
+1. `GND` to `0V`
+1. `GPIO15` to `0V`
+1. `GPIO0` to `3V3`
+1. `VCC` to `3V3`
+
+## References :books:
+
+### Power savings
 
 1. [Power Saving tips for the ESP8266](https://github.com/z2amiller/sensorboard/blob/master/PowerSaving.md)
 1. [SparkFun 3.3V Step-Up Breakout - NCP1402](https://www.sparkfun.com/products/10967)
@@ -50,12 +61,18 @@
 1. [Simple Authentication](https://github.com/esp8266/Arduino/blob/4897e0006b5b0123a2fa31f67b14a3fff65ce561/libraries/ESP8266WebServer/examples/SimpleAuthentification/SimpleAuthentification.ino)
 1. [Debouncing circuit](http://www.ganssle.com/debouncing-pt2.htm)
 
-## Tools
+### Flashing
+
+1. [Programming ESP12](http://glyncowles.blogspot.sg/2015/07/programming-and-running-esp12-e.html)
+1. [Troubleshooting flashing](https://learn.sparkfun.com/tutorials/esp8266-thing-hookup-guide/discuss#comment-55a05571ce395f88538b4567)
+1. [NodeMCU modes](https://raw.githubusercontent.com/nodemcu/nodemcu-devkit/master/Documents/NODEMCU_DEVKIT_SCH.png)
+
+## Tools :radio:
 
 1. [simple calculator for estimating a (LiPo) battery's life](http://battery-life.of-things.de/battery-life-calculator.php)
 1. [Encode to Base64 format](https://www.base64encode.org/)
 1. [Electronics circuit simulator](http://www.falstad.com/circuit/)
 
-## Credits
+## Credits :pray:
 
 :star: Big thanks to [Chinmay](https://chinmay.audio/), [Adnan](https://github.com/catmaker), [Kenneth](https://github.com/kennethlimcp), [Shan](https://twitter.com/shannietron), [Baoshi](https://twitter.com/ba0sh1) for prototyping, feedback, verifications and soldering :star:
