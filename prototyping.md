@@ -2,7 +2,7 @@
 
 > Photos of various prototypes
 
-## 1. nodeMCU
+## 1. nodeMCU WeMos
 
 - nodeMCU is used to test the initial circuit
 - the circuit has a buzzer and a push button to mimc the bell
@@ -15,6 +15,59 @@
     void setup() {
       Serial.begin(9600);
       pinMode(BUILTIN_LED, OUTPUT);
+
+      Serial.println('Start');
+      Serial.println('Wake up!');
+      digitalWrite(BUILTIN_LED, HIGH);
+      delay(1000);
+      digitalWrite(BUILTIN_LED, LOW);
+      delay(1000);
+      digitalWrite(BUILTIN_LED, HIGH);
+      delay(1000);
+      digitalWrite(BUILTIN_LED, LOW);
+      delay(1000);
+    }
+
+    void loop() {
+      Serial.println("Sleeping in.... 3");
+      delay(100);
+      Serial.println("Sleeping in.... 2");
+      delay(100);
+      Serial.println("Sleeping in.... 1");
+      delay(100);
+      ESP.deepSleep(5e6, WAKE_RF_DEFAULT);
+    }
+    ```
+- Connect to WiFi on waking up
+
+    ```c
+    #include <ESP8266WiFi.h>
+
+    const char* ssid     = "secret"; // change secret
+    const char* password = "secret"; // change secret
+
+    void setup() {
+      Serial.begin(115200);
+      delay(10);
+
+      Serial.println();
+      Serial.println();
+      Serial.print("Connecting to ");
+      Serial.println(ssid);
+
+      WiFi.begin(ssid, password);
+
+      while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+      }
+
+      Serial.println("");
+      Serial.println("WiFi connected");
+      Serial.println("IP address: ");
+      Serial.println(WiFi.localIP());
+
+      pinMode(LED_BUILTIN, OUTPUT);
 
       Serial.println('Start');
       Serial.println('Wake up!');
