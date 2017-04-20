@@ -4,14 +4,14 @@
 
 ## 1. nodeMCU WeMos
 
+![](images/prototype-1.JPG)
+
 - nodeMCU is used to test the initial circuit
 - the circuit has a buzzer and a push button to mimc the bell
 
-    ![](images/prototype-1.JPG)
-
 ## 2. nodeMCU WeMos with Schmitt trigger
 
-    ![](images/prototype-3.JPG)
+![](images/prototype-3.JPG)
 
 - Super simple interrupt from sleep by pressing the bell
 
