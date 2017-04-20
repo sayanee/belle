@@ -91,6 +91,84 @@
       ESP.deepSleep(5e6, WAKE_RF_DEFAULT);
     }
     ```
+- Create a HTTP POST request to IFTTT
+
+    ```c
+    #include <ESP8266WiFi.h>
+
+    const char* ssid     = "secret"; // change secret
+    const char* password = "secret"; // change secret
+
+    void setup() {
+      Serial.begin(115200);
+      delay(10);
+
+      Serial.println();
+      Serial.println();
+      Serial.print("Connecting to ");
+      Serial.println(ssid);
+
+      WiFi.begin(ssid, password);
+
+      while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+      }
+
+      Serial.println("");
+      Serial.println("WiFi connected");
+      Serial.println("IP address: ");
+      Serial.println(WiFi.localIP());
+
+      pinMode(LED_BUILTIN, OUTPUT);
+
+      Serial.println('Start');
+      Serial.println('Wake up!');
+      digitalWrite(BUILTIN_LED, HIGH);
+      delay(1000);
+      digitalWrite(BUILTIN_LED, LOW);
+      delay(1000);
+      digitalWrite(BUILTIN_LED, HIGH);
+      delay(1000);
+      digitalWrite(BUILTIN_LED, LOW);
+      delay(1000);
+      notifyBellPressed();
+    }
+
+    void loop() {
+      Serial.println("Sleeping in.... 3");
+      delay(100);
+      Serial.println("Sleeping in.... 2");
+      delay(100);
+      Serial.println("Sleeping in.... 1");
+      delay(100);
+      ESP.deepSleep(5e6, WAKE_RF_DEFAULT);
+    }
+
+    void notifyBellPressed() {
+      WiFiClientSecure client;
+
+      if (!client.connect("maker.ifttt.com", 443)) {
+        Serial.println("connection failed");
+        return;
+      }
+
+      String PostData="sample";
+
+      // Amend "{secret}" to IFTTT web request URL
+      client.println("POST /trigger/bell_pressed/with/key/{secret} HTTP/1.1");
+      client.println("Host:  maker.ifttt.com");
+      client.println("User-Agent: nodeMCU/1.0");
+      client.println("Connection: close");
+      client.println("Content-Type: text/html; charset=utf-8;");
+      client.print("Content-Length: ");
+      client.println(PostData.length());
+      client.println();
+      client.println(PostData);
+
+      return;
+    }
+    ```
 
 ## 2. ESP12
 
