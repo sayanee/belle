@@ -9,6 +9,10 @@
 
     ![](images/prototype-1.JPG)
 
+## 2. nodeMCU WeMos with Schmitt trigger
+
+    ![](images/prototype-3.JPG)
+
 - Super simple interrupt from sleep by pressing the bell
 
     ```c
@@ -170,7 +174,7 @@
     }
     ```
 
-## 2. ESP12
+## 3. ESP12
 
 - Refactored to use ESP12 modules for ESP8266
 - Also AP2112 is used for the voltage conversion from `5V` to `3.3V`
