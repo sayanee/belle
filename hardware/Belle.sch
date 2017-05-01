@@ -260,7 +260,7 @@ L R_Small R6
 U 1 1 58BBD5DC
 P 7150 3900
 F 0 "R6" V 7250 3850 50  0000 L CNN
-F 1 "12K" V 7050 3850 50  0000 L CNN
+F 1 "10K" V 7050 3850 50  0000 L CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" H 7150 3900 50  0001 C CNN
 F 3 "" H 7150 3900 50  0000 C CNN
 	1    7150 3900
@@ -348,7 +348,7 @@ L CONN_01X06 P3
 U 1 1 58BBDEAA
 P 8700 3650
 F 0 "P3" H 8700 4000 50  0000 C CNN
-F 1 "Flashing CONN" V 8800 3650 50  0000 C CNN
+F 1 "FTDI Flashing CONN" V 8800 3650 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 8700 3650 50  0001 C CNN
 F 3 "" H 8700 3650 50  0000 C CNN
 	1    8700 3650
@@ -357,12 +357,12 @@ $EndComp
 $Comp
 L GND #PWR015
 U 1 1 58BBDF88
-P 8200 4000
-F 0 "#PWR015" H 8200 3750 50  0001 C CNN
-F 1 "GND" H 8200 3850 50  0000 C CNN
-F 2 "" H 8200 4000 50  0000 C CNN
-F 3 "" H 8200 4000 50  0000 C CNN
-	1    8200 4000
+P 8100 3000
+F 0 "#PWR015" H 8100 2750 50  0001 C CNN
+F 1 "GND" H 8100 2850 50  0000 C CNN
+F 2 "" H 8100 3000 50  0000 C CNN
+F 3 "" H 8100 3000 50  0000 C CNN
+	1    8100 3000
 	1    0    0    -1  
 $EndComp
 Text Label 8400 3700 0    60   ~ 0
@@ -370,46 +370,35 @@ TX
 Text Label 8400 3800 0    60   ~ 0
 RX
 $Comp
-L R_Small R7
-U 1 1 58BBEBD8
-P 7450 3400
-F 0 "R7" V 7400 3500 50  0000 L CNN
-F 1 "470R" V 7500 3500 50  0000 L CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 7450 3400 50  0001 C CNN
-F 3 "" H 7450 3400 50  0000 C CNN
-	1    7450 3400
-	0    1    1    0   
-$EndComp
-$Comp
 L R_Small R5
 U 1 1 58BBEC6E
-P 7150 3050
-F 0 "R5" H 7000 3050 50  0000 L CNN
-F 1 "12K" H 7200 3050 50  0000 L CNN
-F 2 "Resistors_SMD:R_1206_HandSoldering" H 7150 3050 50  0001 C CNN
-F 3 "" H 7150 3050 50  0000 C CNN
-	1    7150 3050
+P 6950 2950
+F 0 "R5" H 6800 2950 50  0000 L CNN
+F 1 "12K" H 7000 2950 50  0000 L CNN
+F 2 "Resistors_SMD:R_1206_HandSoldering" H 6950 2950 50  0001 C CNN
+F 3 "" H 6950 2950 50  0000 C CNN
+	1    6950 2950
 	1    0    0    -1  
 $EndComp
 $Comp
 L +3.3V #PWR016
 U 1 1 58BBED05
-P 7150 2700
-F 0 "#PWR016" H 7150 2550 50  0001 C CNN
-F 1 "+3.3V" H 7150 2840 50  0000 C CNN
-F 2 "" H 7150 2700 50  0000 C CNN
-F 3 "" H 7150 2700 50  0000 C CNN
-	1    7150 2700
+P 6950 2650
+F 0 "#PWR016" H 6950 2500 50  0001 C CNN
+F 1 "+3.3V" H 6950 2800 50  0000 C CNN
+F 2 "" H 6950 2650 50  0000 C CNN
+F 3 "" H 6950 2650 50  0000 C CNN
+	1    6950 2650
 	1    0    0    -1  
 $EndComp
 Text Label 8400 3600 0    60   ~ 0
 5V
 Text Label 8500 3500 2    60   ~ 0
-FLASH_EN_2
+CTS
 Text Label 8500 3400 2    60   ~ 0
-FLASH_EN_1
-Text Label 8500 3900 2    60   ~ 0
 GND
+Text Label 8500 3900 2    60   ~ 0
+DTR
 Text Label 8300 4950 2    60   ~ 0
 PWR
 NoConn ~ 5000 4100
@@ -418,8 +407,6 @@ NoConn ~ 5000 3900
 NoConn ~ 5000 3800
 NoConn ~ 5000 3600
 NoConn ~ 7150 4850
-NoConn ~ 6800 3700
-NoConn ~ 6800 3800
 $Comp
 L PWR_FLAG #FLG017
 U 1 1 58BBEBAB
@@ -477,11 +464,11 @@ F 3 "" H 6800 5000 50  0000 C CNN
 $EndComp
 Text Notes 3950 2750 0    60   ~ 0
 Buzzer will ring when \nthe bell is pressed
-Text Notes 9200 4100 1    60   ~ 0
-Flashing connector is\nused to flash the firmware\nfor the very first time
+Text Notes 8900 3900 0    60   ~ 0
+Flashing connector is\nused to flash the firmware\nfor the very first time.\n\nCTS, DTR are pulled out for\npossible future use case.
 Text Notes 1950 4100 1    60   ~ 0
 Bell connector connects to \nthe actual door bell wires
-Text Notes 9000 5550 1    60   ~ 0
+Text Notes 8800 5000 0    60   ~ 0
 Battery connector connects \nto 3 AA batteries with 4.5V
 Text Notes 2800 4300 0    60   ~ 0
 RC filter
@@ -494,20 +481,26 @@ Wire Wire Line
 Wire Wire Line
 	3600 3700 3600 3800
 Wire Wire Line
-	2900 3500 3200 3500
+	2900 3500 3100 3500
+Wire Wire Line
+	3100 3500 3200 3500
 Wire Wire Line
 	3100 3600 3100 3500
 Connection ~ 3100 3500
 Wire Wire Line
 	3100 3800 3100 4000
 Wire Wire Line
-	2350 3500 2700 3500
+	2350 3500 2400 3500
+Wire Wire Line
+	2400 3500 2700 3500
 Wire Wire Line
 	4800 3700 5000 3700
 Wire Wire Line
 	4600 3700 4350 3700
 Wire Wire Line
-	6800 3900 7050 3900
+	6800 3900 7000 3900
+Wire Wire Line
+	7000 3900 7050 3900
 Wire Wire Line
 	7250 3900 7450 3900
 Wire Wire Line
@@ -519,42 +512,24 @@ Wire Wire Line
 Wire Wire Line
 	7600 5150 7600 5250
 Wire Wire Line
-	8050 4850 8400 4850
+	8050 4850 8200 4850
 Wire Wire Line
-	8050 3600 8050 4850
+	8200 4850 8400 4850
+Wire Wire Line
+	8050 3600 8050 4250
+Wire Wire Line
+	8050 4250 8050 4450
+Wire Wire Line
+	8050 4450 8050 4700
+Wire Wire Line
+	8050 4700 8050 4850
 Wire Wire Line
 	8400 4950 8400 5150
-Wire Wire Line
-	7700 3800 7700 3600
-Wire Wire Line
-	7700 3600 6800 3600
-Wire Wire Line
-	8500 3700 7950 3700
-Wire Wire Line
-	7950 3700 7950 3500
-Wire Wire Line
-	7950 3500 6800 3500
 Wire Wire Line
 	8500 3600 8050 3600
 Connection ~ 8050 4700
 Wire Wire Line
-	8500 3500 8200 3500
-Wire Wire Line
-	8200 3500 8200 4000
-Connection ~ 8200 3900
-Wire Wire Line
 	6800 4000 6950 4000
-Wire Wire Line
-	6950 4000 6950 3400
-Wire Wire Line
-	6950 3400 7350 3400
-Wire Wire Line
-	7550 3400 8500 3400
-Wire Wire Line
-	7150 2700 7150 2950
-Wire Wire Line
-	7150 3150 7150 3400
-Connection ~ 7150 3400
 Connection ~ 8200 4850
 Wire Wire Line
 	4700 2900 4700 3000
@@ -608,20 +583,24 @@ Wire Wire Line
 Wire Wire Line
 	4700 3500 4100 3500
 Wire Wire Line
-	4700 2900 6200 2900
+	4700 2900 5900 2900
+Wire Wire Line
+	5900 2900 6200 2900
 $Comp
 L C_Small C5
 U 1 1 59070B2B
 P 6300 2550
 F 0 "C5" V 6250 2600 50  0000 L CNN
-F 1 "NC" V 6250 2400 50  0000 L CNN
+F 1 "DNP" V 6250 2350 50  0000 L CNN
 F 2 "" H 6300 2550 50  0000 C CNN
 F 3 "" H 6300 2550 50  0000 C CNN
 	1    6300 2550
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5900 2500 5900 2900
+	5900 2500 5900 2550
+Wire Wire Line
+	5900 2550 5900 2900
 Wire Wire Line
 	6200 2550 5900 2550
 Connection ~ 5900 2550
@@ -661,7 +640,7 @@ L C_Small C7
 U 1 1 590711CA
 P 8300 4250
 F 0 "C7" V 8350 4300 50  0000 L CNN
-F 1 "NC" V 8310 4170 50  0000 L CNN
+F 1 "DNP" V 8350 4050 50  0000 L CNN
 F 2 "" H 8300 4250 50  0000 C CNN
 F 3 "" H 8300 4250 50  0000 C CNN
 	1    8300 4250
@@ -676,8 +655,8 @@ $Comp
 L C_Small C6
 U 1 1 590712F7
 P 6800 4800
-F 0 "C6" H 6700 4900 50  0000 L CNN
-F 1 "NC" H 6700 4700 50  0000 L CNN
+F 0 "C6" H 6650 4900 50  0000 L CNN
+F 1 "DNP" H 6600 4700 50  0000 L CNN
 F 2 "" H 6800 4800 50  0000 C CNN
 F 3 "" H 6800 4800 50  0000 C CNN
 	1    6800 4800
@@ -697,10 +676,77 @@ $EndComp
 Wire Wire Line
 	7000 4900 7000 5000
 Wire Wire Line
-	8500 3800 7700 3800
+	6800 4700 7000 4700
 Wire Wire Line
-	8500 3900 8200 3900
-Wire Wire Line
-	6800 4700 7150 4700
+	7000 4700 7150 4700
 Connection ~ 7000 4700
+Wire Wire Line
+	6950 4000 6950 3050
+Wire Wire Line
+	6950 2850 6950 2650
+Wire Wire Line
+	6800 3500 7850 3500
+Wire Wire Line
+	7850 3500 7850 3800
+Wire Wire Line
+	7850 3800 8500 3800
+Wire Wire Line
+	6800 3600 8000 3600
+Wire Wire Line
+	8000 3600 8000 3700
+Wire Wire Line
+	8000 3700 8500 3700
+Wire Wire Line
+	8500 3400 8500 3000
+Wire Wire Line
+	8500 3000 8100 3000
+$Comp
+L CONN_01X02 P?
+U 1 1 59074415
+P 7600 4100
+F 0 "P?" H 7600 4250 50  0000 C CNN
+F 1 "Boot JUMPER" V 7700 4100 50  0000 C CNN
+F 2 "" H 7600 4100 50  0000 C CNN
+F 3 "" H 7600 4100 50  0000 C CNN
+	1    7600 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7000 3900 7000 4050
+Wire Wire Line
+	7000 4050 7400 4050
+Connection ~ 7000 3900
+$Comp
+L GND #PWR?
+U 1 1 59074532
+P 7400 4250
+F 0 "#PWR?" H 7400 4000 50  0001 C CNN
+F 1 "GND" H 7400 4100 50  0000 C CNN
+F 2 "" H 7400 4250 50  0000 C CNN
+F 3 "" H 7400 4250 50  0000 C CNN
+	1    7400 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 4150 7400 4250
+Wire Wire Line
+	6800 3700 7950 3700
+Wire Wire Line
+	7950 3700 7950 3500
+Wire Wire Line
+	7950 3500 8300 3500
+Wire Wire Line
+	8300 3500 8300 3500
+Wire Wire Line
+	8300 3500 8500 3500
+Wire Wire Line
+	6800 3800 7000 3800
+Wire Wire Line
+	7000 3800 7000 3400
+Wire Wire Line
+	7000 3400 7800 3400
+Wire Wire Line
+	7800 3400 7800 3900
+Wire Wire Line
+	7800 3900 8500 3900
 $EndSCHEMATC
