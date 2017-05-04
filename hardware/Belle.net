@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/sayanee/Workspace/belle/hardware/Belle.sch)
-    (date "2017 May 03, Wednesday 11:07:57")
+    (date "2017 May 04, Thursday 08:31:15")
     (tool "Eeschema 4.0.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
