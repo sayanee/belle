@@ -24,28 +24,11 @@
 1. Put in your WiFi SSID and password
 1. Press the 🛎. You should hear the buzzer and get a mobile notification as well.
 
-## Modes
+## Iteration
 
-### ESP8266 in flashing / programming mode
-
-Connect the pins to:
-
-1. `GND` to `0V`
-1. `GPIO15` to `0V`
-1. `GPIO2` to `3V3 `
-1. `GPIO0` to `0V`
-1. `GPIORX` to TX on serial
-1. `GPIOTX` to RX on serial
-1. `VCC` to `3V3`
-1. `CHPD` to `3V3`
-1.  `RST` the chip by connecting rest to `0V` briefly before flashing
-
-### ESP8266 in run / normal mode
-
-1. `GND` to `0V`
-1. `GPIO15` to `0V`
-1. `GPIO0` to `3V3`
-1. `VCC` to `3V3`
+| No | Wireless | Sensor | Manufacture | Activity | Power | Firmware
+| ------ | ------ | ------ | ------ | ------ |
+| 1 | WiFi ([ESP8266](https://en.wikipedia.org/wiki/ESP8266)) | button | [Seeed](https://www.seeedstudio.com/fusion_pcb.html) | wake up using interrupt | 3 AA batteries | Arduino ESP8266
 
 ## References :books:
 
