@@ -27,7 +27,7 @@
 ## Iteration
 
 | No | Wireless | Sensor | Manufacture | Activity | Power | Firmware
-| ------ | ------ | ------ | ------ | ------ |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | 1 | WiFi ([ESP8266](https://en.wikipedia.org/wiki/ESP8266)) | button | [Seeed](https://www.seeedstudio.com/fusion_pcb.html) | wake up using interrupt | 3 AA batteries | Arduino ESP8266
 
 ## References :books:
