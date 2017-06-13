@@ -1,26 +1,17 @@
-Type,Designator,Q,Value,Package,AVL1,AVL1 P/N,MOQ,Lead time,Data sheet,Unit price,Total price,URL to buy
-Circuit component,"C1, C3, C4",3,"1 uF capacitor, ± 10%",SMD 1206,multicomp,MCSH31B105K160CT,1,1,http://www.farnell.com/datasheets/1825494.pdf,0.033,0.099,http://sg.element14.com/multicomp/mcsh31b105k160ct/cap-mlcc-x7r-1uf-16v-1206/dp/1856638
-Circuit component,C2,1,"10 uF capacitor, ± 10%",SMD 1206,murata,GRM31CR70J106KA01L,5,1,https://www.farnell.com/datasheets/4390.pdf,0.078,0.078,https://sg.element14.com/murata/grm31cr70j106ka01l/capacitor-10uf-6-3v/dp/4716711
+Type,Designator,Q,Value,Package,URL to buy,AVL1,AVL1 P/N,MOQ,Lead time,Data sheet,Unit price,Total price
+Circuit component,"C1, C3, C4",3,"1 uF capacitor, ± 10%",SMD 1206,http://sg.element14.com/multicomp/mcsh31b105k160ct/cap-mlcc-x7r-1uf-16v-1206/dp/1856638,multicomp,MCSH31B105K160CT,1,1,http://www.farnell.com/datasheets/1825494.pdf,0.033,0.099
+Circuit component,C2,1,"10 uF capacitor, ± 10%",SMD 1206,https://sg.element14.com/murata/grm31cr70j106ka01l/capacitor-10uf-6-3v/dp/4716711,murata,GRM31CR70J106KA01L,5,1,https://www.farnell.com/datasheets/4390.pdf,0.078,0.078
 Circuit component,"C5, C6, C7",1,,Do not populate,,,,,,,,
-Circuit component,P1,1,PCB Wire-to-Board Terminal block,Through-hole vertical,multicomp,MA522-500M02,1,1,https://www.newark.com/pdfs/datasheets/spc/Ta-1209.pdf,0.323,0.323,https://sg.element14.com/multicomp/ma522-500m02/terminal-block-eurostyle-2pos/dp/1708099
+Circuit component,P1,1,PCB Wire-to-Board Terminal block,Through-hole vertical,https://sg.element14.com/multicomp/ma522-500m02/terminal-block-eurostyle-2pos/dp/1708099,multicomp,MA522-500M02,1,1,https://www.newark.com/pdfs/datasheets/spc/Ta-1209.pdf,0.323,0.323
 Circuit component,P2,1,Battery connector,Header pin straight 1x02 pitch 2.54mm,,,,,,,,
 External component,connection to P2,1,3 AA Battery holder,"Size: approx. 56 x 45 x 15mm
-Weight: 15g",,,1,21,nil,1.1,1.1,https://www.aliexpress.com/item/3-x-AA-Battery-Storage-Case-Plastic-Box-Holder-with-Cable-Lead-for-3-Packs-Standard/32571144192.html
+Weight: 15g",https://www.aliexpress.com/item/3-x-AA-Battery-Storage-Case-Plastic-Box-Holder-with-Cable-Lead-for-3-Packs-Standard/32571144192.html,,,1,21,nil,1.1,1.1
 Circuit component,P3,1,Flashing connector,Header pin straight 1x06 pitch 2.54mm,,,,,,,,
-Circuit component,R1,1,"22 KΩ resistor,  ± 1%, 200V",SMD 1206,Koa Speer,RK73H2BTTD2202F,1,1,https://www.farnell.com/datasheets/549017.pdf,0.039,0.039,https://sg.element14.com/koa-speer-electronics/rk73h2bttd2202f/res-thick-film-22k-1-0-25w-1206/dp/1812035
-Circuit component,R2,1,"51 KΩ resistor, ± 1%, 200V, 0.25W",SMD 1206,multicomp,MC1206S4F5102T5E,1,1,https://www.newark.com/pdfs/datasheets/spc/TA-677.pdf,0.018,0.018,https://sg.element14.com/multicomp/mc1206s4f5102t5e/resistor-thick-film-51kohm-0-25w/dp/1646798
-Circuit component,"R3, R4, R5, R6, R7",1,"10 KΩ resistor, 1%, 200V, 0.25W",SMD 1206,multicomp,MC1206S4F1002T5E,1,1,https://www.newark.com/pdfs/datasheets/spc/TA-677.pdf,0.019,0.019,https://sg.element14.com/multicomp/mc1206s4f1002t5e/res-thick-film-10k-1-0-25w-1206/dp/1632523
-Circuit component,SP1,1,Buzzer Electro mechanical 5V DC,Through hole,pro-signal,ABI-050-RC ,1,1,https://www.farnell.com/datasheets/2032394.pdf,3.29,3.29,http://sg.element14.com/pro-signal/abi-050-rc/buzzer-electro-mechanical-5vdc/dp/2534976
-Circuit component,U1,1,"Inverter, Schmitt Trigger, 2V to 5.5V",SOT-23-5,Texas Instruments,SN74AHC1G14DBVR,1,1,https://www.farnell.com/datasheets/1860943.pdf,0.664,0.664,https://sg.element14.com/texas-instruments/sn74ahc1g14dbvr/74ahc-single-gate-smd-74ahc1g14/dp/1105919
-Circuit component,U2,1,ESP8266 SMT module,SMT,Adafruit,ESP12,1,28,https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf,10,10,https://www.adafruit.com/product/2491
-Circuit component,U3,1,CMOS process low dropout linear voltage regulator,SOT-23,BCD semiconductor,AP2112,,,https://cdn-shop.adafruit.com/product-files/2471/AP2112.pdf,,,
-,,,,,,,,,,SGD,15.63,
-,,,,,,,,,,,,
-,,,Abbreviations / Explanations,,,,,,,,,
-,,,Q,Quantity,,,,,,,,
-,,,Designator,Labels on the PCB,,,,,,,,
-,,,AVL1,Accepted Vendor List 1,,,,,,,,
-,,,P/N,Part Number,,,,,,,,
-,,,MOQ,Minimum order Quantity,,,,,,,,
-,,,Lead time,Number of days it will take to deliver,,,,,,,,
-,,,Unit price,in SGD,,,,,,,,
+Circuit component,R1,1,"22 KΩ resistor,  ± 1%, 200V",SMD 1206,https://sg.element14.com/koa-speer-electronics/rk73h2bttd2202f/res-thick-film-22k-1-0-25w-1206/dp/1812035,Koa Speer,RK73H2BTTD2202F,1,1,https://www.farnell.com/datasheets/549017.pdf,0.039,0.039
+Circuit component,R2,1,"51 KΩ resistor, ± 1%, 200V, 0.25W",SMD 1206,http://sg.element14.com/panasonic-electronic-components/erj8enf5102v/res-thick-film-51k-1-0-25w-1206/dp/2307743,Panasonic,ERJ8ENF5102V,20,1,https://www.newark.com/pdfs/datasheets/spc/TA-677.pdf,0.018,0.018
+Circuit component,"R3, R4, R5, R6, R7",1,"12 KΩ resistor, 1%, 200V, 0.25W",SMD 1206,https://sg.element14.com/multicomp/mc1206s4f1002t5e/res-thick-film-10k-1-0-25w-1206/dp/1632523,multicomp,MC1206S4F1002T5E,1,1,https://www.newark.com/pdfs/datasheets/spc/TA-677.pdf,0.019,0.019
+Circuit component,SP1,1,Buzzer Electro mechanical 5V DC,Through hole,http://sg.element14.com/pro-signal/abi-050-rc/buzzer-electro-mechanical-5vdc/dp/2534976,pro-signal,ABI-050-RC ,1,1,https://www.farnell.com/datasheets/2032394.pdf,3.29,3.29
+Circuit component,U1,1,"Inverter, Schmitt Trigger, 2V to 5.5V",SOT-23-5,https://sg.element14.com/texas-instruments/sn74ahc1g14dbvr/74ahc-single-gate-smd-74ahc1g14/dp/1105919,Texas Instruments,SN74AHC1G14DBVR,1,1,https://www.farnell.com/datasheets/1860943.pdf,0.664,0.664
+Circuit component,U2,1,ESP8266 SMT module,SMT,https://www.adafruit.com/product/2491,Adafruit,ESP12,1,28,https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf,10,10
+Circuit component,U3,1,CMOS process low dropout linear voltage regulator,SOT-23,,BCD semiconductor,AP2112,,,https://cdn-shop.adafruit.com/product-files/2471/AP2112.pdf,,
+,,,,,,,,,,,SGD,15.63
