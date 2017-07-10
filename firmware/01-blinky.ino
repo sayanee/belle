@@ -1,6 +1,5 @@
-// INFO: On-board ESP12 LED will blink
-// HARDDWARE: ESP12E module with FTDI chip
-// USAGE: Put the ESP12 into flashing firmware mode
+// INFO: On-board LED will blink every second
+// HARDWARE: ESP12E module with FTDI chip
 
 void setup() {
   pinMode(2, OUTPUT); // GPIO02 on ESP-12 module is linked to on-board LED
