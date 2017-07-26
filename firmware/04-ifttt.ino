@@ -1,9 +1,17 @@
-// INFO: Wakeup on bell press and HTTP POST to IFTTT
+// INFO:
+// Wakeup on bell press
+// Send HTTP POST to IFTTT only when waking up from deep sleep
 // PREPARE:
-// Edit "secret"s in Line 7, 8, 78
+// Edit "secret"s in Line 17, 18, 92
 // Connect an external button to the connector
 
+#define WAKE_UP_REASON_DEEP_SLEEP 5
+
 #include <ESP8266WiFi.h>
+
+extern "C" {
+  #include "user_interface.h"
+}
 
 // Edit "secret" ssid and password below
 const char* ssid     = "secret";
@@ -37,6 +45,8 @@ void setup() {
 }
 
 void loop() {
+  int wakeupReason = getWakeupReason();
+
   digitalWrite(2, HIGH);
   Serial.println(WiFi.localIP());
   delay(500);
@@ -50,8 +60,10 @@ void loop() {
   digitalWrite(2, LOW);
   delay(500);
 
-  Serial.println("Making a request to IFTTT...");
-  httpPost();
+  if (wakeupReason == WAKE_UP_REASON_DEEP_SLEEP) {
+    Serial.println("Making a request to IFTTT...");
+    httpPost();
+  }
 
   digitalWrite(2, HIGH);
   Serial.println("Sleep.... 2");
@@ -88,4 +100,21 @@ void httpPost() {
   client.println(PostData);
 
   return;
+}
+
+int getWakeupReason() {
+  rst_info* ri = system_get_rst_info();
+  if (ri == NULL) {
+    return -1;
+  }
+
+  // REASON_DEFAULT_RST       = 0,  /* normal startup by power on */
+  // REASON_WDT_RST           = 1,  /* hardware watch dog reset */
+  // REASON_EXCEPTION_RST     = 2,  /* exception reset, GPIO status won’t change */
+  // REASON_SOFT_WDT_RST      = 3,  /* software watch dog reset, GPIO status won’t change */
+  // REASON_SOFT_RESTART      = 4,  /* software restart ,system_restart , GPIO status won’t change */
+  // REASON_DEEP_SLEEP_AWAKE  = 5,  /* wake up from deep-sleep */
+  // REASON_EXT_SYS_RST       = 6   /* external system reset */
+
+  return ri->reason;
 }
