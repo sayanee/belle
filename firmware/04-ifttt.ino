@@ -40,8 +40,6 @@ void setup() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
