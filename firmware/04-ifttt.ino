@@ -14,7 +14,7 @@ extern "C" {
 }
 
 // Edit "secret" ssid and password below
-const char* ssid     = "secret";
+const char* ssid = "secret";
 const char* password = "secret";
 
 void setup() {
