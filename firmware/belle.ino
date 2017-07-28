@@ -25,16 +25,14 @@ char password [50] = "";
 ESP8266WebServer server(80);
 
 void setup() {
-#ifdef DEBUG
+
   Serial.begin(9600);
-#endif
 
   if (WiFi.SSID() == "") {
     setupAP();
   } else {
-#ifdef DEBUG
+
     Serial.println("Wake up!");
-#endif
   }
 }
 
@@ -44,27 +42,24 @@ void loop() {
   } else {
     int resetReason = getResetReason();
 
-#ifdef DEBUG
+
     Serial.print("system_get_rst_info: ");
     Serial.println(resetReason);
-#endif
 
     if (resetReason == WAKE_UP_REASON_DEEP_SLEEP) {
       if (connectToWiFi() == true) {
-#ifdef DEBUG
+
         Serial.println("Making a request to IFTTT...");
-#endif
         httpPost();
       }
 
     }
 
-#ifdef DEBUG
+
     Serial.println("Sleeping in 2");
     delay(100);
     Serial.println("Sleeping in 1");
     delay(100);
-#endif
 
     ESP.deepSleep(0, WAKE_RF_DEFAULT);
   }
@@ -105,9 +100,8 @@ void setupAP() {
   server.collectHeaders(headerkeys, headerkeyssize );
   server.begin();
 
-#ifdef DEBUG
+
   Serial.println("Started AP");
-#endif
 }
 
 bool connectToWiFi() {
@@ -151,27 +145,24 @@ void handleRoot() {
       Serial.print(".");
       count++;
 
-#ifdef DEBUG
+
       if (count % 10 == 0) {
         Serial.println("");
       }
-#endif
 
       if (count > 120) {
-#ifdef DEBUG
+
         Serial.println("Could not connect to WiFi. Please try again.");
-#endif
         break;
       }
     }
 
     if (WiFi.status() == WL_CONNECTED) {
-#ifdef DEBUG
+
       Serial.println("");
       Serial.print("WiFi connected! ");
       Serial.print("IP address: ");
       Serial.println(WiFi.localIP());
-#endif
 
       server.sendHeader("Location","/");
       server.sendHeader("Cache-Control","no-cache");
