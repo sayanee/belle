@@ -18,8 +18,8 @@ ESP8266WebServer server(80);
 void setup() {
   // GPIO02 on ESP-12 module is linked to on-board LED
   pinMode(2, OUTPUT);
-	Serial.begin(115200);
-	setupAP();
+  Serial.begin(115200);
+  setupAP();
 }
 
 void loop() {
@@ -31,7 +31,7 @@ void loop() {
   Serial.println("[INFO] LED off");
   delay(500);
 
-	server.handleClient();
+  server.handleClient();
 }
 
 void setupAP() {
@@ -130,3 +130,4 @@ void handleRoot() {
   content += "<input type='submit' name='submit' value='Submit'></form></body></html>";
   server.send(200, "text/html", content);
 }
+
