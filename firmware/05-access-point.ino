@@ -8,7 +8,7 @@
 #include <ESP8266mDNS.h>
 
 String AP_NamePrefix = "Belle ";
-const char WiFiAPPSK[] =  "secret";
+const char WiFiAPPSK[] = "secret";
 const char* DomainName = "belle"; // set domain name domain.local
 char ssid [50] = "";
 char password [50] = "";
@@ -76,12 +76,11 @@ void setupAP() {
 
 void handleRoot() {
   if (server.hasArg("ssid") && server.hasArg("password")){
-    Serial.print("SSID:");
+    Serial.print("[INFO] SSID:");
     Serial.println(server.arg("ssid"));
     server.arg("ssid").toCharArray(ssid, 50);
 
-    Serial.print("Password:");
-    Serial.println(server.arg("password"));
+    Serial.print("[INFO] Password received!");
     server.arg("password").toCharArray(password, 50);
 
     WiFi.begin(ssid, password);
@@ -95,23 +94,19 @@ void handleRoot() {
       Serial.print(".");
       count++;
 
-
       if (count % 10 == 0) {
         Serial.println("");
       }
 
       if (count > 120) {
-
-        Serial.println("Could not connect to WiFi. Please try again.");
+        Serial.println("[ERROR] Could not connect to WiFi. Please try again.");
         break;
       }
     }
 
     if (WiFi.status() == WL_CONNECTED) {
-
       Serial.println("");
-      Serial.print("WiFi connected! ");
-      Serial.print("IP address: ");
+      Serial.print("[INFO] WiFi connected! IP address: ");
       Serial.println(WiFi.localIP());
 
       server.sendHeader("Location","/");
