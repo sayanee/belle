@@ -19,7 +19,12 @@ void setup() {
   // GPIO02 on ESP-12 module is linked to on-board LED
   pinMode(2, OUTPUT);
 	Serial.begin(115200);
-	setupAP();
+
+  if (WiFi.SSID() == "") {
+    setupAP();
+  } else {
+    Serial.println("[INFO] Bell is awake.");
+  }
 }
 
 void loop() {
@@ -31,7 +36,13 @@ void loop() {
   Serial.println("[INFO] LED off");
   delay(500);
 
-	server.handleClient();
+  if (WiFi.SSID() == "") {
+    Serial.println("[INFO] WiFi is not configured yet!");
+    server.handleClient();
+  } else {
+    Serial.print("[INFO] WiFi SSID has been configured: ");
+    Serial.println(WiFi.SSID());
+  }
 }
 
 void setupAP() {
