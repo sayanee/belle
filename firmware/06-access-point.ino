@@ -57,16 +57,11 @@ void blink(int interval) {
 
 void setupAP() {
   Serial.print("[TRACE] Configuring access point");
-
   WiFi.mode(WIFI_AP);
 
-  uint8_t mac[WL_MAC_ADDR_LENGTH];
-  WiFi.softAPmacAddress(mac);
-  String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
-                 String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
-  macID.toUpperCase();
-  String AP_NameString = AP_NamePrefix + macID;
+  String AP_NameString = getAPName();
 
+  // convert String to char array
   char AP_NameChar[AP_NameString.length() + 1];
   memset(AP_NameChar, 0, AP_NameString.length() + 1);
 
@@ -75,6 +70,21 @@ void setupAP() {
 
   WiFi.softAP(AP_NameChar, WiFiAPPSK);
 
+  startMDNS();
+  startServer();
+  Serial.println("[INFO] Started access point!");
+}
+
+String getAPName() {
+  uint8_t mac[WL_MAC_ADDR_LENGTH];
+  WiFi.softAPmacAddress(mac);
+  String macID = String(mac[WL_MAC_ADDR_LENGTH - 2], HEX) +
+                 String(mac[WL_MAC_ADDR_LENGTH - 1], HEX);
+  macID.toUpperCase();
+  return AP_NamePrefix + macID;
+}
+
+void startMDNS() {
   if (!MDNS.begin(DomainName)) {
     Serial.println("[ERROR] MDNS responder did not setup");
     while(1) {
@@ -83,7 +93,9 @@ void setupAP() {
   }
 
   MDNS.addService("http", "tcp", 80);
+}
 
+void startServer() {
   server.on("/", handleRoot);
 
   const char * headerkeys[] = {"User-Agent","Cookie"} ;
@@ -91,8 +103,6 @@ void setupAP() {
 
   server.collectHeaders(headerkeys, headerkeyssize );
   server.begin();
-
-  Serial.println("[INFO] Started access point!");
 }
 
 void handleRoot() {
