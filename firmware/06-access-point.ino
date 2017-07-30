@@ -1,5 +1,6 @@
 // INFO:
 // Create an Access Point for initial configuration at http://belle.local
+// Get IFTTT key at https://ifttt.com/services/maker_webhooks/settings
 // Send HTTP POST to IFTTT only when waking up from deep sleep
 
 #include <ESP8266WiFi.h>
@@ -20,29 +21,38 @@ void setup() {
   pinMode(2, OUTPUT);
 	Serial.begin(115200);
 
-  if (WiFi.SSID() == "") {
+  if (!hasWiFiCredentials()) {
     setupAP();
-  } else {
-    Serial.println("[INFO] Bell is awake.");
   }
 }
 
 void loop() {
-  digitalWrite(2, HIGH);
-  Serial.println("[INFO] LED on");
-  delay(500);
-
-  digitalWrite(2, LOW);
-  Serial.println("[INFO] LED off");
-  delay(500);
-
-  if (WiFi.SSID() == "") {
-    Serial.println("[INFO] WiFi is not configured yet!");
+  if (!hasWiFiCredentials()) {
+    blink(200);
+    Serial.println("[INFO] WiFi is not configured!");
+    Serial.println("[INFO] Connect to Belle and go to http://belle.local/");
     server.handleClient();
   } else {
+    blink(2000);
     Serial.print("[INFO] WiFi SSID has been configured: ");
     Serial.println(WiFi.SSID());
   }
+}
+
+bool hasWiFiCredentials() {
+  if (WiFi.SSID() == "") {
+    return false;
+  }
+
+  return true;
+}
+
+void blink(int interval) {
+  digitalWrite(2, HIGH);
+  delay(interval);
+
+  digitalWrite(2, LOW);
+  delay(interval);
 }
 
 void setupAP() {
@@ -111,6 +121,8 @@ void handleRoot() {
 
       if (count > 120) {
         Serial.println("[ERROR] Could not connect to WiFi. Please try again.");
+        WiFi.disconnect();
+        setupAP();
         break;
       }
     }
