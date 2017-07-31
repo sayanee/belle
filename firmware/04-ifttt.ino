@@ -2,7 +2,7 @@
 // Wakeup on bell press
 // Send HTTP POST to IFTTT only when waking up from deep sleep
 // PREPARE:
-// Edit "secret"s in Line 17, 18, 92
+// Edit "secret"s in Line 17, 18, 88
 // Connect an external button to the connector
 
 #define WAKE_UP_REASON_DEEP_SLEEP 5
@@ -16,6 +16,8 @@ extern "C" {
 // Edit "secret" ssid and password below
 const char* ssid = "secret";
 const char* password = "secret";
+const char* host = "maker.ifttt.com";
+const int httpsPort = 443;
 
 void setup() {
   // GPIO02 on ESP-12 module is linked to on-board LED
@@ -37,8 +39,7 @@ void setup() {
   }
 
   Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
+  Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 }
 
@@ -78,25 +79,34 @@ void loop() {
 void httpPost() {
   WiFiClientSecure client;
 
-  if (!client.connect("maker.ifttt.com", 443)) {
+  if (!client.connect(host, httpsPort)) {
     Serial.println("connection failed");
     return;
   }
 
-  String PostData="sample";
-
-  // Amend "secret" to IFTTT web request URL
   // Get the "secret" from https://ifttt.com/services/maker_webhooks/settings
-  client.println("POST /trigger/bell_pressed/with/key/secret HTTP/1.1");
-  client.println("Host:  maker.ifttt.com");
-  client.println("User-Agent: nodeMCU/1.0");
-  client.println("Connection: close");
-  client.println("Content-Type: text/html; charset=utf-8;");
-  client.print("Content-Length: ");
-  client.println(PostData.length());
-  client.println();
-  client.println(PostData);
+  String url = "/trigger/bell_pressed/with/key/secret";
 
+  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+               "Host: " + host + "\r\n" +
+               "User-Agent: ESP8266\r\n" +
+               "Connection: close\r\n\r\n");
+
+  unsigned long timeout = millis();
+  while (client.available() == 0) {
+    if (millis() - timeout > 5000) {
+      Serial.println("[ERROR] Client Timeout!");
+      client.stop();
+      return;
+    }
+  }
+
+  while(client.available()){
+    String line = client.readStringUntil('\r');
+    Serial.print(line);
+  }
+
+  Serial.println("[INFO] Closing connection");
   return;
 }
 
