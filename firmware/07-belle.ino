@@ -1,5 +1,5 @@
 // INFO:
-// Create an Access Point for initial configuration at http://belle.local
+// Connect to "Bell XXX" Access Point for initial configuration at http://belle.local
 // Get IFTTT key at https://ifttt.com/services/maker_webhooks/settings
 // Send HTTP POST to IFTTT only when waking up from deep sleep
 
@@ -9,6 +9,7 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
+#include <EEPROM.h>
 
 extern "C" {
   #include "user_interface.h"
@@ -19,7 +20,7 @@ const char WiFiAPPSK[] = "beautyandbeast";
 const char* DomainName = "belle"; // set domain name domain.local
 char ssid [50] = "";
 char password [50] = "";
-char key [50] = "";
+String key = "";
 const char* host = "maker.ifttt.com";
 const int httpsPort = 443;
 
@@ -41,7 +42,7 @@ void loop() {
   if (!hasWiFiCredentials()) {
     blink(200);
     Serial.println("[INFO] WiFi is not configured!");
-    Serial.println("[INFO] Connect to Belle AP and visit http://belle.local/");
+    Serial.println("[INFO] Connect to 'Belle XXX' WiFi and visit http://belle.local/");
     server.handleClient();
   } else {
     blink(2000);
@@ -70,9 +71,12 @@ void httpPost() {
   }
 
   // Get the "secret" from https://ifttt.com/services/maker_webhooks/settings
-  String url = "/trigger/bell_pressed/with/key/secret";
+  String url = "/trigger/bell_pressed/with/key/";
+  key = readKey();
+  Serial.print("[INFO] EEPROM Key stored: ");
+  Serial.println(key);
 
-  client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+  client.print(String("GET ") + url + key + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +
                "User-Agent: ESP8266\r\n" +
                "Connection: close\r\n\r\n");
@@ -206,8 +210,10 @@ void handleRoot() {
     Serial.print("[INFO] Password received!");
     server.arg("password").toCharArray(password, 50);
 
-    Serial.print("[INFO] IFTTT key received!");
-    server.arg("key").toCharArray(key, 50);
+    Serial.println("[INFO] IFTTT key received!");
+    writeKey(server.arg("key"));
+    // TODO: readKey() immediately
+    // TODO: Check if writeKey and readkey results are same
 
     WiFi.begin(ssid, password);
     WiFi.persistent(true);
@@ -252,4 +258,36 @@ void handleRoot() {
   content += "IFTTT Key:<input type='text' name='key' placeholder='IFTTT Key'><br>";
   content += "<input type='submit' name='submit' value='Submit'></form></body></html>";
   server.send(200, "text/html", content);
+}
+
+void writeKey(String writeStr) {
+  EEPROM.begin(512);
+  delay(10);
+
+  for (int i = 0; i < writeStr.length(); ++i) {
+    EEPROM.write(i, writeStr[i]);
+    Serial.print("[INFO] Writing to EEPROM: ");
+    Serial.println(writeStr[i]);
+  }
+
+  EEPROM.commit();
+}
+
+String readKey() {
+  String readStr;
+  char readChar;
+  Serial.print("[INFO] Reading from EEPROM: ");
+
+  // TODO: Store length of key
+  for (int i = 0; i < 22; ++i) {
+    readChar = char(EEPROM.read(i));
+    readStr += readChar;
+
+    Serial.print("Char: ");
+    Serial.println(readChar);
+  }
+
+  Serial.println("");
+  Serial.println(readStr);
+  return readStr;
 }
