@@ -32,3 +32,9 @@ Reference: `P3` FTDI connector `5V`
 - [x] `P2`
 - [x] `C4`, `C7`
 - [x] `U3` pins `1` and `3`
+
+## Shorted pins?
+
+- [x] `U1`, `U2` ESP8266, `U3`
+- [x] `SP1`
+- [x] `P1`, `P2`, `P3`, `P4`
