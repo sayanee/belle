@@ -1,8 +1,6 @@
-# hardware
+# hardware continuity checklist
 
 > Designed PCB layout with [KiCad](http://kicad-pcb.org/)
-
-## Continuity Checklist
 
 A list of connectivity checks after soldering
 
