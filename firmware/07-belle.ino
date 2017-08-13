@@ -212,43 +212,44 @@ void handleRoot() {
 
     Serial.println("[INFO] IFTTT key received!");
     writeKey(server.arg("key"));
-    // TODO: readKey() immediately
-    // TODO: Check if writeKey and readkey results are same
+    readKey();
 
-    WiFi.begin(ssid, password);
-    WiFi.persistent(true);
-    WiFi.setAutoConnect(true);
-    WiFi.setAutoReconnect(true);
+    if (server.arg("key") == readKey()) {
+      WiFi.begin(ssid, password);
+      WiFi.persistent(true);
+      WiFi.setAutoConnect(true);
+      WiFi.setAutoReconnect(true);
 
-    int count = 0;
-    while (WiFi.status() != WL_CONNECTED) {
-      delay(500);
-      Serial.print(".");
-      count++;
+      int count = 0;
+      while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+        count++;
 
-      if (count % 10 == 0) {
+        if (count % 10 == 0) {
+          Serial.println("");
+        }
+
+        if (count > 120) {
+          Serial.println("[ERROR] Could not connect to WiFi. Please try again.");
+          WiFi.disconnect();
+          setupAP();
+          break;
+        }
+      }
+
+      if (WiFi.status() == WL_CONNECTED) {
         Serial.println("");
+        Serial.print("[INFO] WiFi connected! IP address: ");
+        Serial.println(WiFi.localIP());
+
+        server.sendHeader("Location","/");
+        server.sendHeader("Cache-Control","no-cache");
+        server.sendHeader("Set-Cookie","ESPSESSIONID=1");
+        server.send(301);
+
+        return;
       }
-
-      if (count > 120) {
-        Serial.println("[ERROR] Could not connect to WiFi. Please try again.");
-        WiFi.disconnect();
-        setupAP();
-        break;
-      }
-    }
-
-    if (WiFi.status() == WL_CONNECTED) {
-      Serial.println("");
-      Serial.print("[INFO] WiFi connected! IP address: ");
-      Serial.println(WiFi.localIP());
-
-      server.sendHeader("Location","/");
-      server.sendHeader("Cache-Control","no-cache");
-      server.sendHeader("Set-Cookie","ESPSESSIONID=1");
-      server.send(301);
-
-      return;
     }
   }
 
@@ -274,6 +275,8 @@ void writeKey(String writeStr) {
 }
 
 String readKey() {
+  EEPROM.begin(512);
+  
   String readStr;
   char readChar;
   Serial.print("[INFO] Reading from EEPROM: ");
