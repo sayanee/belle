@@ -7,28 +7,45 @@
 ## Manufacture
 
 1. Open [hardware](hardware) with [KiCad](http://kicad-pcb.org/)
-1. Buy [Bill of Materials](https://docs.google.com/spreadsheets/d/1m9wsQ8mQkDeZknwRr8GEDQU02FGcmrBqXRizbyn6Ccs/pubhtml)
+1. Buy [Bill of Materials](bill_of_materials.csv)
 
 ![](layout.png)
 
 ## Getting started
 
-1. Assemble the test hardware in a breadboard with [nodeMCU](http://nodemcu.com/index_en.html), button and buzzer
+### Flash the firmware
 
-  ![](images/prototype-1.JPG)
-1. Configure IFTTT with [Maker](https://ifttt.com/maker) and [Notification](https://ifttt.com/if_notifications) channels to Receive a web request
-1. Download the IFTTT app on mobile as well.
-1. Amend `Line 220` in [firmware code](firmware/belle.ino#L220) to add the web request URL
-1. Load the [firmware code](firmware/belle.ino) in Arduino IDE and upload to nodeMCU
-1. For first time, connect to access point with SSID `Belle XXXX` and password `beautyandthebeast`
-1. Put in your WiFi SSID and password
-1. Press the 🛎. You should hear the buzzer and get a mobile notification as well.
+1. Ensure the batteries are not connected yet!
+1. Short the 2 header pins on `P4` for boot mode
+1. Connect an FTDI chip to `P3`
+1. Connect the other end of the FTDI chip to the laptop via USB
 
-## Iteration
+    ![](images/flashing-firmware.jpg)
+1. Open Arduino IDE with the following configuration
 
-| No | Wireless | Sensor | Manufacture | Activity | Power | Firmware
-| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| 1 | WiFi ([ESP8266](https://en.wikipedia.org/wiki/ESP8266)) | button | [Seeed](https://www.seeedstudio.com/fusion_pcb.html) | wake up using interrupt | 3 AA batteries | Arduino ESP8266
+    ![](images/arduino-config.png)
+1. Flash the [final firmware](firmware/belle.io) to the board
+1. Remove the FTDI chip and the remove the shorted header pins of `P4`
+
+### IFTTT
+
+1. Configure IFTTT with [Webhooks](https://ifttt.com/maker_webhooks) and [Notification](https://ifttt.com/if_notifications) channels to Receive a web request
+1. Put the event name as `bell_pressed`
+1. Download the IFTTT app on mobile as well
+1. Note the IFTTT key [maker_webhooks settings page](https://ifttt.com/services/maker_webhooks/settings)
+
+    ![](images/ifttt-key/jpg)
+
+### Connect your door bell
+
+1. Connect 3 AA batteries
+1. Connect your actual door bell to `P2` connectors
+1. Mount it up on the wall
+1. Connect to WiFi access point with SSID `Belle XXXX` and password `beautyandthebeast` on mobile / laptop
+1. Visit page <http://belle.local>
+1. Fill in SSID, Pass and IFTTT Key
+1. Press the 🛎
+1. You should hear the buzzer and get a mobile IFTTT notification as well :tada:
 
 ## References :books:
 
@@ -55,6 +72,7 @@
 1. [simple calculator for estimating a (LiPo) battery's life](http://battery-life.of-things.de/battery-life-calculator.php)
 1. [Encode to Base64 format](https://www.base64encode.org/)
 1. [Electronics circuit simulator](http://www.falstad.com/circuit/)
+1. [Circuit calculator](http://circuitcalculator.com/)
 
 ## Credits :pray:
 
