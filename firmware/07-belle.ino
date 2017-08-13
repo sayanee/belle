@@ -57,6 +57,7 @@ void loop() {
 }
 
 void goToSleep() {
+  Serial.println("");
   Serial.println("[INFO] Sleeping in 2");
   delay(100);
   Serial.println("[INFO] Sleeping in 1");
@@ -270,8 +271,6 @@ void writeKey(String writeStr) {
 
   for (int i = 0; i < writeStr.length(); ++i) {
     EEPROM.write(i, writeStr[i]);
-    Serial.print("[INFO] Writing to EEPROM: ");
-    Serial.println(writeStr[i]);
   }
 
   EEPROM.commit();
@@ -282,18 +281,14 @@ String readKey() {
 
   String readStr;
   char readChar;
-  Serial.print("[INFO] Reading from EEPROM: ");
 
   // TODO: Store length of key
   for (int i = 0; i < 22; ++i) {
     readChar = char(EEPROM.read(i));
     readStr += readChar;
-
-    Serial.print("Char: ");
-    Serial.println(readChar);
   }
 
-  Serial.println("");
+  Serial.print("[INFO] Reading from EEPROM: ");
   Serial.println(readStr);
   return readStr;
 }
