@@ -4,6 +4,7 @@
 // Send HTTP POST to IFTTT only when waking up from deep sleep
 
 #define WAKE_UP_REASON_DEEP_SLEEP 5
+#define LED 2
 
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
@@ -28,7 +29,7 @@ ESP8266WebServer server(80);
 
 void setup() {
   // GPIO02 on ESP-12 module is linked to on-board LED
-  pinMode(2, OUTPUT);
+  pinMode(LED, OUTPUT);
 	Serial.begin(115200);
 
   if (!hasWiFiCredentials()) {
@@ -124,10 +125,10 @@ bool hasWiFiCredentials() {
 }
 
 void blink(int interval) {
-  digitalWrite(2, HIGH);
+  digitalWrite(LED, HIGH);
   delay(interval);
 
-  digitalWrite(2, LOW);
+  digitalWrite(LED, LOW);
   delay(interval);
 }
 
@@ -276,7 +277,7 @@ void writeKey(String writeStr) {
 
 String readKey() {
   EEPROM.begin(512);
-  
+
   String readStr;
   char readChar;
   Serial.print("[INFO] Reading from EEPROM: ");
