@@ -48,19 +48,21 @@ void loop() {
   } else {
     blink(2000);
 
-    if (getResetReason() == WAKE_UP_REASON_DEEP_SLEEP) {
-      if (connectToWiFi() == true) {
-        httpPost();
-      }
+    if (getResetReason() == WAKE_UP_REASON_DEEP_SLEEP && connectToWiFi() == true) {
+      httpPost();
     }
 
-    Serial.println("Sleeping in 2");
-    delay(100);
-    Serial.println("Sleeping in 1");
-    delay(100);
-
-    ESP.deepSleep(0, WAKE_RF_DEFAULT);
+    goToSleep();
   }
+}
+
+void goToSleep() {
+  Serial.println("[INFO] Sleeping in 2");
+  delay(100);
+  Serial.println("[INFO] Sleeping in 1");
+  delay(100);
+
+  ESP.deepSleep(0, WAKE_RF_DEFAULT);
 }
 
 void httpPost() {
