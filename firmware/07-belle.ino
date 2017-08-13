@@ -67,6 +67,7 @@ void goToSleep() {
 }
 
 void httpPost() {
+  Serial.println("[INFO] Sending notification...");
   WiFiClientSecure client;
 
   if (!client.connect(host, httpsPort)) {
@@ -77,8 +78,6 @@ void httpPost() {
   // Get the "secret" from https://ifttt.com/services/maker_webhooks/settings
   String url = "/trigger/bell_pressed/with/key/";
   key = readKey();
-  Serial.print("[INFO] EEPROM Key stored: ");
-  Serial.println(key);
 
   client.print(String("GET ") + url + key + " HTTP/1.1\r\n" +
                "Host: " + host + "\r\n" +
@@ -288,7 +287,5 @@ String readKey() {
     readStr += readChar;
   }
 
-  Serial.print("[INFO] Reading from EEPROM: ");
-  Serial.println(readStr);
   return readStr;
 }
