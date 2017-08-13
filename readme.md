@@ -31,19 +31,27 @@
 
 1. Configure IFTTT with [Webhooks](https://ifttt.com/maker_webhooks) and [Notification](https://ifttt.com/if_notifications) channels to Receive a web request
 1. Put the event name as `bell_pressed`
+
+    ![](images/ifttt-configure.jpg)
 1. Download the IFTTT app on mobile as well
-1. Note the IFTTT key [maker_webhooks settings page](https://ifttt.com/services/maker_webhooks/settings)
+1. Note the IFTTT key on the [maker_webhooks settings page](https://ifttt.com/services/maker_webhooks/settings)
 
     ![](images/ifttt-key.jpg)
 
 ### Connect your door bell
 
 1. Connect 3 AA batteries
+1. Ensure the blue on-board LED is blinking fast
 1. Connect your actual door bell to `P2` connectors
 1. Mount it up on the wall
+
+    ![](images/mount.jpg)
 1. Connect to WiFi access point with SSID `Belle XXXX` and password `beautyandthebeast` on mobile / laptop
 1. Visit page <http://belle.local>
-1. Fill in SSID, Pass and IFTTT Key
+1. Fill in `SSID`, `Password` and `IFTTT Key`
+
+    ![](images/configure.png)
+1. Wait for the LED to stop blinking
 1. Press the 🛎
 1. You should hear the buzzer and get a mobile IFTTT notification as well :tada:
 
