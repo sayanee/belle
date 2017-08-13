@@ -34,7 +34,7 @@
 1. Download the IFTTT app on mobile as well
 1. Note the IFTTT key [maker_webhooks settings page](https://ifttt.com/services/maker_webhooks/settings)
 
-    ![](images/ifttt-key/jpg)
+    ![](images/ifttt-key.jpg)
 
 ### Connect your door bell
 
