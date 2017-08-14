@@ -5,7 +5,7 @@
 #include <ESP8266WiFi.h>
 
 // Edit "secret" ssid and password below
-const char* ssid = "secrasdasdet";
+const char* ssid = "secret";
 const char* password = "secret";
 
 void setup() {
@@ -20,7 +20,7 @@ void setup() {
   testWakeUp();
 }
 
-void loop { }
+void loop() { }
 
 void testBlink() {
   for (int i=0; i <= 3; i++) {
@@ -50,5 +50,6 @@ void testWiFiConnectivity() {
 }
 
 void testWakeUp() {
-
+  Serial.print("[TEST] Sleeping now...");
+  ESP.deepSleep(0, WAKE_RF_DEFAULT);
 }
