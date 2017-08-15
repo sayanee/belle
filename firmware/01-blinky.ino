@@ -3,7 +3,7 @@
 
 void setup() {
   pinMode(2, OUTPUT); // GPIO02 on ESP-12 module is linked to on-board LED
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("setup");
 }
 

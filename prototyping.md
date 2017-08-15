@@ -17,7 +17,7 @@
 
     ```c
     void setup() {
-      Serial.begin(9600);
+      Serial.begin(115200);
       pinMode(BUILTIN_LED, OUTPUT);
 
       Serial.println('Start');
