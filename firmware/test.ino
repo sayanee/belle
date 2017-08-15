@@ -26,9 +26,8 @@ void setup() {
 
   testBlink();
   testWiFiConnectivity();
+  eraseStoredConfig();
   testSleep();
-  // TODO: erase stored SSID and password
-  // eraseStoredConfig();
 }
 
 void loop() { }
@@ -66,7 +65,8 @@ void testSleep() {
 }
 
 void testWakeUp() {
-  Serial.println("[TEST] Woke up after reset");
+  Serial.println("");
+  Serial.println("[TEST] Wake up after reset");
 }
 
 int getResetReason() {
@@ -84,4 +84,10 @@ int getResetReason() {
   // REASON_EXT_SYS_RST      = 6    /* external system reset */
 
   return ri->reason;
+}
+
+void eraseStoredConfig() {
+  // Erase stored WiFi SSID and password
+  WiFi.disconnect();
+  Serial.println("[INFO] WiFi credentials are erased");
 }
