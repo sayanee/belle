@@ -16,9 +16,12 @@ extern "C" {
 void setup() {
   pinMode(LED, OUTPUT);
   Serial.begin(115200);
+  Serial.println("");
 
   if (getResetReason() == WAKE_UP_REASON_DEEP_SLEEP) {
-    testWakeUp();
+    Serial.println("[TEST] Wake up after reset from deep sleep");
+  } else {
+    Serial.println("[TEST] Wake up after start");
   }
 
   Serial.println("[INFO] Starting test in 5 seconds...");
@@ -62,11 +65,6 @@ void testWiFiConnectivity() {
 void testSleep() {
   Serial.print("[TEST] Sleeping now...");
   ESP.deepSleep(0, WAKE_RF_DEFAULT);
-}
-
-void testWakeUp() {
-  Serial.println("");
-  Serial.println("[TEST] Wake up after reset");
 }
 
 int getResetReason() {
