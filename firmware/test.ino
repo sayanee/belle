@@ -27,6 +27,8 @@ void setup() {
   testBlink();
   testWiFiConnectivity();
   testSleep();
+  // TODO: erase stored SSID and password
+  // eraseStoredConfig();
 }
 
 void loop() { }
