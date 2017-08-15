@@ -21,8 +21,8 @@ void setup() {
     testWakeUp();
   }
 
-  Serial.println("[INFO] Starting test in 20 seconds...");
-  delay(10000);
+  Serial.println("[INFO] Starting test in 5 seconds...");
+  delay(5000);
 
   testBlink();
   testWiFiConnectivity();
@@ -64,7 +64,7 @@ void testSleep() {
 }
 
 void testWakeUp() {
-  Serial.print("[TEST] Woke up after reset");
+  Serial.println("[TEST] Woke up after reset");
 }
 
 int getResetReason() {
