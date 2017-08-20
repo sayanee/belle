@@ -473,10 +473,6 @@ Battery connector connects \nto 3 AA batteries with 4.5V
 Text Notes 2800 4300 0    60   ~ 0
 RC filter
 Wire Wire Line
-	4700 3200 5000 3200
-Wire Wire Line
-	5000 3200 5000 3500
-Wire Wire Line
 	3600 3150 3600 3300
 Wire Wire Line
 	3600 3700 3600 3800
@@ -553,8 +549,8 @@ $Comp
 L R_Small R4
 U 1 1 58FE989D
 P 4800 3500
-F 0 "R4" V 4700 3550 50  0000 L CNN
-F 1 "10K" V 4700 3300 50  0000 L CNN
+F 0 "R4" V 4700 3500 50  0000 L CNN
+F 1 "0R" V 4700 3350 50  0000 L CNN
 F 2 "Resistors_SMD:R_1206_HandSoldering" H 4800 3500 50  0001 C CNN
 F 3 "" H 4800 3500 50  0000 C CNN
 	1    4800 3500
@@ -735,4 +731,20 @@ Wire Wire Line
 Wire Wire Line
 	6800 4900 6800 5000
 Connection ~ 6900 4700
+$Comp
+L R_Small R9
+U 1 1 59937CCF
+P 4850 3200
+F 0 "R9" V 4750 3200 50  0000 L CNN
+F 1 "0R" V 4750 3050 50  0000 L CNN
+F 2 "" H 4850 3200 50  0000 C CNN
+F 3 "" H 4850 3200 50  0000 C CNN
+	1    4850 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 3200 4950 3500
+Connection ~ 4950 3500
+Wire Wire Line
+	4750 3200 4700 3200
 $EndSCHEMATC
