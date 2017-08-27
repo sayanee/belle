@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/sayanee/Workspace/belle/hardware/Belle.sch)
-    (date "2017 August 21, Monday 06:01:57")
+    (date "2017 August 27, Sunday 18:20:11")
     (tool "Eeschema 4.0.5")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -17,7 +17,7 @@
   (components
     (comp (ref U2)
       (value ESP-12)
-      (footprint ESP8266:ESP-12)
+      (footprint ESP-12F-SMD:ESP-12F-SMD)
       (libsource (lib ESP8266) (part ESP-12))
       (sheetpath (names /) (tstamps /))
       (tstamp 58BBC183))
@@ -278,14 +278,14 @@
         (pin (num 4) (name NC/FB) (type input))
         (pin (num 5) (name OUT) (type power_out)))))
   (libraries
-    (library (logical 74xx)
-      (uri "/Library/Application Support/kicad/library/74xx.lib"))
     (library (logical conn)
       (uri "/Library/Application Support/kicad/library/conn.lib"))
-    (library (logical regul)
-      (uri "/Library/Application Support/kicad/library/regul.lib"))
     (library (logical device)
       (uri "/Library/Application Support/kicad/library/device.lib"))
+    (library (logical regul)
+      (uri "/Library/Application Support/kicad/library/regul.lib"))
+    (library (logical 74xx)
+      (uri "/Library/Application Support/kicad/library/74xx.lib"))
     (library (logical ESP8266)
       (uri /Users/sayanee/Workspace/belle/hardware/kicad-ESP8266/ESP8266.lib))
     (library (logical Belle-cache)
