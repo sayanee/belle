@@ -63,8 +63,8 @@ void testWiFiConnectivity() {
 }
 
 void testSleep() {
-  Serial.print("[TEST] Sleeping indefinitely now...");
-  Serial.print("[INFO] Please wake it up with a button press");
+  Serial.println("[TEST] Sleeping indefinitely now...");
+  Serial.println("[INFO] Please wake it up with a button press");
   ESP.deepSleep(0, WAKE_RF_DEFAULT);
 }
 
