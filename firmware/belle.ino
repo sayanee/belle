@@ -4,7 +4,10 @@
 // Send HTTP POST to IFTTT only when waking up from deep sleep
 
 #define WAKE_UP_REASON_DEEP_SLEEP 5
+#define WAKE_UP_REASON_EXTERNAL_SYSTEM_RESET 6
 #define LED 2
+#define BELL_PRESS_ADDR 30
+#define IS_BELL_PRESSED EEPROM.read(BELL_PRESS_ADDR)
 
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
@@ -28,6 +31,12 @@ const int httpsPort = 443;
 ESP8266WebServer server(80);
 
 void setup() {
+  EEPROM.begin(512);
+
+  if (getResetReason() == WAKE_UP_REASON_DEEP_SLEEP && IS_BELL_PRESSED == 0) {
+    recordBellPressEvent();
+  }
+
   // GPIO02 on ESP-12 module is linked to on-board LED
   pinMode(LED, OUTPUT);
 	Serial.begin(115200);
@@ -48,8 +57,13 @@ void loop() {
   } else {
     blink(2000);
 
-    if (getResetReason() == WAKE_UP_REASON_DEEP_SLEEP && connectToWiFi() == true) {
-      httpPost();
+    if (connectToWiFi() == true) {
+      if (getResetReason() == WAKE_UP_REASON_DEEP_SLEEP || getResetReason() == WAKE_UP_REASON_EXTERNAL_SYSTEM_RESET) {
+        if (IS_BELL_PRESSED == 1) {
+          sendToIFTTT();
+          eraseBellPressEvent();
+        }
+      }
     }
 
     goToSleep();
@@ -66,12 +80,12 @@ void goToSleep() {
   ESP.deepSleep(0, WAKE_RF_DEFAULT);
 }
 
-void httpPost() {
-  Serial.println("[INFO] Sending notification...");
+void sendToIFTTT() {
+  Serial.println("[INFO] Sending IFTTT notification...");
   WiFiClientSecure client;
 
   if (!client.connect(host, httpsPort)) {
-    Serial.println("connection failed");
+    Serial.println("[ERROR] Connection failed");
     return;
   }
 
@@ -146,7 +160,7 @@ bool connectToWiFi() {
     }
 
     if (count > 120) {
-      Serial.println("Could not connect to WiFi. Please try again.");
+      Serial.println("[ERROR] Could not connect to WiFi. Please try again.");
       return false;
     }
   }
@@ -265,7 +279,6 @@ void handleRoot() {
 }
 
 void writeKey(String writeStr) {
-  EEPROM.begin(512);
   delay(10);
 
   for (int i = 0; i < writeStr.length(); ++i) {
@@ -276,8 +289,6 @@ void writeKey(String writeStr) {
 }
 
 String readKey() {
-  EEPROM.begin(512);
-
   String readStr;
   char readChar;
 
@@ -288,4 +299,14 @@ String readKey() {
   }
 
   return readStr;
+}
+
+void recordBellPressEvent() {
+  EEPROM.write(BELL_PRESS_ADDR, 1);
+  EEPROM.commit();
+}
+
+void eraseBellPressEvent() {
+  EEPROM.write(BELL_PRESS_ADDR, 0);
+  EEPROM.commit();
 }
